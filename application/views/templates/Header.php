@@ -26,6 +26,6 @@
                 <a class="p-2 text-dark" href="#">Veterinarios</a>
                 <a class="p-2 text-dark" href="#">Facturas</a>
             </nav>
-            <a class="btn btn-outline-primary" href="#">Cerrar Sesión</a>
+            <a class="btn btn-outline-primary" href="<?php echo base_url().'index.php/login/log_out';?>">Cerrar Sesión</a>
         </div>
 <!-- </html> -->
