@@ -1,8 +1,5 @@
 <?php
-class Login_Model extends CI_Model {
-
-    public $usuario;
-    public $password;
+class Usuario_model extends CI_Model {
 
     public function validacion(){
         $this->db->where('nombre', $this->input->post('nombre'));  
@@ -15,12 +12,21 @@ class Login_Model extends CI_Model {
                 'nombre' => $query->row_array()['nombre'],
                 'password' => $query->row_array()['password'],
                 'rol' => $query->row_array()['rol'],
-                'currently_logged_in' => 1
+                'logged_in' => 1
             );
             $this->session->set_userdata($data);
             return true; 
         }
 
         return false;
+    }
+
+    public function get_usuarios() {
+        return $this->db->get('usuarios')->result_array();
+    }
+
+    public function add_usuario($data)
+    {
+        $this->db->insert('usuarios', $data);
     }
 }
