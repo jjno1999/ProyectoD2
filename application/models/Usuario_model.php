@@ -1,32 +1,35 @@
 <?php
-class Usuario_model extends CI_Model {
-
-    public function validacion(){
-        $this->db->where('nombre', $this->input->post('nombre'));  
-        $this->db->where('password', $this->input->post('password')); 
-
+require_once(APPPATH . 'models/Base_model.php');
+/**
+* Modelo del usuario
+*
+* Permite interactuar con los datos de usuario de la base de datos
+*/
+class Usuario_model extends Base_model
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->tabla = 'usuarios';
+    }
+    
+    /**
+    * Verifica si el usuario esta en la base de datos y es valido
+    *
+    * @param array $usuario arreglo de datos del usuario ingresado por post
+    * @return array usuario si el usuario es valido
+    * @return boolean false si el usuario es no valido
+    */
+    public function validar($usuario)
+    {
+        $this->db->where($usuario);
         $query = $this->db->get('usuarios');
 
-        if ($query->num_rows() == 1) { 
-            $data = array(
-                'nombre' => $query->row_array()['nombre'],
-                'password' => $query->row_array()['password'],
-                'rol' => $query->row_array()['rol'],
-                'logged_in' => 1
-            );
-            $this->session->set_userdata($data);
-            return true; 
+        if ($query->num_rows() == 1) {
+            if ($query->row_array()['estado'] == 'activo') {
+                return $query->row_array();
+            }
         }
-
         return false;
-    }
-
-    public function get_usuarios() {
-        return $this->db->get('usuarios')->result_array();
-    }
-
-    public function add_usuario($data)
-    {
-        $this->db->insert('usuarios', $data);
     }
 }
