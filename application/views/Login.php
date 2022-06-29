@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="submit" name="btn_login" class="btn btn-success btn-block" value="Iniciar Sesion">
+                <input type="submit" class="btn btn-success btn-block" value="Iniciar Sesion">
             </div>
         </div>
     </form>

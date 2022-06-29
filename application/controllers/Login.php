@@ -1,12 +1,13 @@
 <?php
+
 /**
-* Controlador para operaciones pre autenticacion
-*/
+ * Controlador para operaciones pre autenticacion
+ */
 class Login extends CI_Controller
 {
     /**
-    * Muestra la pagina de login
-    */
+     * Muestra la pagina de login
+     */
     public function Index()
     {
         if ($this->session->userdata('estado') == 'activo') {
@@ -17,20 +18,22 @@ class Login extends CI_Controller
     }
 
     /**
-    * Inicia sesion si el usuario ingresado por post es valido
-    */
+     * Inicia sesion si el usuario ingresado por post es valido
+     */
     public function log_in()
     {
         $this->load->model('Usuario_model');
         $this->load->library('form_validation');
 
-        $data = array(
-            'nombre' => $this->input->post('nombre'), 
-            'password' => $this->input->post('password'));
-
-        $usuario = $this->Usuario_model->validar($data);
+        $usuario = $this->Usuario_model->validar($_POST);
         if ($usuario) {
-                $this->session->set_userdata($usuario);
+            $this->session->set_userdata($usuario);
+            if($usuario['rol'] == 'veterinario')
+            {
+                $this->load->model('Veterinario_model');
+                $veterinario = $this->Veterinario_model->get_veterinario_desde_usuario($this->session->userdata('id'));
+                $this->session->set_userdata('veterinario', $veterinario);
+            }
             redirect($this->session->userdata('rol'));
         } else {
             redirect('login');
@@ -38,8 +41,8 @@ class Login extends CI_Controller
     }
 
     /**
-    * Cierra sesion
-    */
+     * Cierra sesion
+     */
     public function log_out()
     {
         $this->session->sess_destroy();

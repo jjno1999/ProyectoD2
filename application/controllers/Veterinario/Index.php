@@ -1,24 +1,24 @@
 <?php
 require_once(APPPATH . 'controllers/Auth_privilegiado.php');
 /**
-* Controlador para usuarios de tipo administrador
+* Controlador para usuarios de tipo veterinarios
 */
 class Index extends Auth_privilegiado
 {
     public function __construct()
     {
         parent::__construct();
-        $this->login_check('administrador');
-        $this->acceso = array('Usuarios', 'Clientes', 'Mascotas', 'Veterinarios', 'Historias_Clinicas', 'Facturas');
+        $this->login_check('veterinario');
+        $this->acceso = array('Mascotas', 'Clientes', 'Historias_Clinicas');
     }
 
     /**
-    * Muestra la pagina de administrador
+    * Muestra la pagina de veterinario
     */
     public function Index()
     {
         $data['acceso'] = $this->acceso;
-        $data['informacion'] = 'Bienvenido, '.$this->session->all_userdata()['nombre'];
+        $data['informacion'] = 'Bienvenido, ' . $this->session->userdata('veterinario')['nombre'];
         $this->view('dashboard', $data);
     }
 }

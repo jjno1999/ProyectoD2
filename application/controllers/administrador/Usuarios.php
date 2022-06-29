@@ -16,8 +16,10 @@ class Usuarios extends Index
     */
     public function Index()
     {
-        $data['usuarios'] = $this->Usuario_model->get();
-        $this->view('usuarios', $data);
+        $data['registros'] = $this->Usuario_model->get();
+        $data['campos'] = $this->Usuario_model->get_fields();
+        $paginas = array('usuario_add', 'tabla_admin_registros');
+        $this->view($paginas, $data);
     }
 
     /**
@@ -28,23 +30,17 @@ class Usuarios extends Index
     public function modificar($id)
     {
         $data['usuario'] = $this->Usuario_model->get($id);
+        $data['campos'] = $this->Usuario_model->get_fields();
         $this->view('usuario_mod', $data);
     }
 
     /**
     * Recoge los valores del formulario para proceder a registrar un usuario
     */
-    public function usuario_add()
+    public function reg_add()
     {
-        $data = array(
-            'id' => 'NULL',
-            'nombre' => $this->input->post('nombre'),
-            'password' => $this->input->post('password'),
-            'rol' => $this->input->post('rol'),
-            'estado' => $this->input->post('estado'),
-        );
-        $this->Usuario_model->add($data);
-        redirect('administrador/usuarios');
+        $this->Usuario_model->add($_POST);
+        redirect($this->session->userdata('rol') . '/' .$this->uri->segment(2));
     }
 
     /**
@@ -52,15 +48,10 @@ class Usuarios extends Index
     *
     * @param int $id id del usuario a modificar
     */
-    public function usuario_mod($id){
-        $usuario = array(
-            'id' => $id,
-            'nombre' => $this->input->post('nombre'),
-            'password' => $this->input->post('password'),
-            'rol' => $this->input->post('rol'),
-            'estado' => $this->input->post('estado'),
-        );
-        $this->Usuario_model->mod($usuario);
-        redirect('administrador/usuarios');
+    public function reg_mod($id)
+    {
+        $_POST['id'] = $id;
+        $this->Usuario_model->mod($_POST);
+        redirect($this->session->userdata('rol') . '/' . $this->uri->segment(2));
     }
 }

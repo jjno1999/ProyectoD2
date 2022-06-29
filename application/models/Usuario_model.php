@@ -1,7 +1,7 @@
 <?php
 require_once(APPPATH . 'models/Base_model.php');
 /**
-* Modelo del usuario
+* Modelo de usuario
 *
 * Permite interactuar con los datos de usuario de la base de datos
 */
@@ -11,6 +11,7 @@ class Usuario_model extends Base_model
     {
         parent::__construct();
         $this->tabla = 'usuarios';
+        $this->id = 'id';
     }
     
     /**

@@ -8,18 +8,31 @@ class Auth_privilegiado extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->login_check('administrador');
         $this->acceso = NULL;
     }
 
     /**
     * Muestra una pagina con componentes basicos
+    * @param object $page pagina o paginas a mostrar
+    * @param array $data datos a pasar a las vistas
     */
     public function view($page, $data = []) {
-        $this->load->view('templates/base');
-        $this->load->view('templates/header', array('acceso' => $this->acceso));
-        $this->load->view($page, $data);
-        $this->load->view('templates/footer');
+        if(gettype($page) == 'string'){
+            $this->load->view('templates/base');
+            $this->load->view('templates/header', array('acceso' => $this->acceso));
+            $this->load->view($page, $data);
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->load->view('templates/base');
+            $this->load->view('templates/header', array('acceso' => $this->acceso));
+            foreach($page as $p)
+            {
+                $this->load->view($p, $data);
+            }
+            $this->load->view('templates/footer');
+        }
     }
 
     /**

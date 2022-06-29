@@ -19,3 +19,18 @@ function table_search() {
         }
     }
 }
+
+var table = document.getElementById('select-table'),
+    selected = table.getElementsByClassName('selected-row');
+table.onclick = highlight;
+var input = document.getElementById('select-input');
+function highlight(e) {
+    if (selected[0]) selected[0].className = '';
+    e.target.parentNode.className = 'selected';
+}
+
+function fnselect(){
+var $row=$(this).parent().find('td');
+    var clickeedID=$row.eq(0).text();
+    alert(clickeedID);
+}

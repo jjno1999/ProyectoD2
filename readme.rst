@@ -1,3 +1,15 @@
+***********************
+Configuracion de servidor
+***********************
+1. Instalar xampp server (preferiblemente la version 8.1.6)
+2. copiar la carpeta del proyecto en htdocs ubicada en la ruta de xampp server
+2. Iniciar xampp server
+3. entrar a localhost/phpmyadmin
+4. crear una base de datos con el nombre acme_db
+5. importar el contenido del archivo acme_db.sql a la base de datos
+6. entrar a localhost/acme_db
+* Nota: el nombre y password iniciales son admin admin
+
 ###################
 What is CodeIgniter
 ###################

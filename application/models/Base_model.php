@@ -10,6 +10,26 @@ class Base_model extends CI_Model
     {
         parent::__construct();
         $this->tabla = NULL;
+        $this->id = NULL;
+    }
+
+    /**
+    * Retorna los campos de la tabla
+    *
+    * @return array arreglo de campos
+    */
+    public function get_fields()
+    {
+        $this->db->select('COLUMN_NAME');
+        $this->db->where('TABLE_NAME', $this->tabla);
+        $query = $this->db->get('INFORMATION_SCHEMA.COLUMNS');
+
+        $columnas = array();
+        foreach($query->result_array() as $row)
+        {
+            array_push($columnas, $row['COLUMN_NAME']);
+        }
+        return $columnas;
     }
 
     /**
@@ -24,7 +44,7 @@ class Base_model extends CI_Model
     {
         if($id)
         {
-            $this->db->where('id', $id);
+            $this->db->where($this->id, $id);
             $query = $this->db->get($this->tabla);
             if ($query->num_rows() == 1) {
                 return $query->row_array();
@@ -33,7 +53,7 @@ class Base_model extends CI_Model
         }
         else
         {
-            $this->db->order_by('id', 'DESC');
+            $this->db->order_by($this->id, 'DESC');
             $query = $this->db->get($this->tabla);
             return $query->result_array();
         }
@@ -59,7 +79,7 @@ class Base_model extends CI_Model
     */
     public function mod($data)
     {
-        $this->db->where('id', $data["id"]);
+        $this->db->where($this->id, $data[$this->id]);
         $query = $this->db->update($this->tabla, $data);
         return $query;
     }

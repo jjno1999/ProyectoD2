@@ -3,16 +3,17 @@
     <table class="table table-light table-sm table-hover table-striped">
         <thead>
             <tr class="table-primary">
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Password</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Estado</th>
+                <?php
+                foreach($campos as $campo)
+                {
+                    echo '<th scope="col">' . $campo . '</th>';
+                }
+                ?>
                 <th scope="col">Accion</th>
             </tr>
         </thead>
         <tbody>
-            <form method="post" action="<?php echo base_url() . 'index.php/administrador/usuarios/usuario_mod/' . $usuario['id'];?>">
+            <form method="post" action="<?php echo base_url('index.php/' . $this->session->userdata('rol') . '/' . $this->uri->segment(2) .  '/reg_mod/' . $usuario['id']);?>">
                 <tr>
                     <th scope='row'><?php echo $usuario['id'];?></th>
                     <td><input class="form-control form-control-sm" name="nombre" value="<?php echo $usuario['nombre'];?>" placeholder="nombre de usuario"></td>
