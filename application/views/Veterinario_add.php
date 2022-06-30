@@ -1,5 +1,5 @@
 <div class="container rounded bg-light pb-1 mb-3">
-    <h1 class="center">Insertar registro</h1>
+    <h1 class="center">Insertar veterinario</h1>
     <table class="table table-light table-sm table-hover table-striped">
         <thead>
             <tr class="table-primary">
@@ -15,7 +15,7 @@
         <tbody>
             <form method="post" action="<?php echo base_url('index.php/' . $this->session->userdata('rol') . '/' .$this->uri->segment(2). '/reg_add');?>">
                 <tr>
-                    <th scope='row'>#</th>
+                    <th scope='row'><input class="form-control form-control-sm" name="no_documento" placeholder="documento del veterinario"></th>
                     <td><input class="form-control form-control-sm" name="nombre" placeholder="nombre de veterinario"></td>
                     <td><input class="form-control form-control-sm" name="fecha_nacimiento" placeholder="fecha de nacimiento"></td>
                     <td><input class="form-control form-control-sm" name="telefono" placeholder="telefono"></td>
@@ -27,7 +27,7 @@
                             <?php
                             foreach($usuarios as $usuario)
                             {
-                                echo '<option value="' . $usuario['id'] . '">(' . $usuario['id'] . ')' . $usuario['nombre'] . '</option>';
+                                echo '<option value="' . $usuario['id'] . '">' . $usuario['nombre'] . '(' . $usuario['id'] . ')</option>';
                             }
                             ?>
                         </select></td>

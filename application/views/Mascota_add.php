@@ -1,5 +1,5 @@
 <div class="container rounded bg-light pb-1 mb-3">
-    <h1 class="center">Insertar registro</h1>
+    <h1 class="center">Insertar Mascota</h1>
     <table class="table table-light table-sm table-hover table-striped">
         <thead>
             <tr class="table-primary">
@@ -25,7 +25,7 @@
                             <?php
                             foreach($clientes as $cliente)
                             {
-                                echo '<option value="' . $cliente['no_documento'] . '">(' . $cliente['no_documento'] . ')' . $cliente['nombre'] . '</option>';
+                                echo '<option value="' . $cliente['no_documento'] . '">' . $cliente['nombre'] . '(' . $cliente['no_documento'] . ')</option>';
                             }
                             ?>
                         </select></td>

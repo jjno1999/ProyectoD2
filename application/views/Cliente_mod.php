@@ -1,5 +1,5 @@
 <div class="container rounded bg-light pb-1 mb-3">
-    <h1 class="center">Insertar registro</h1>
+    <h1 class="center">Modificar cliente</h1>
     <table class="table table-light table-sm table-hover table-striped">
         <thead>
             <tr class="table-primary">

@@ -101,7 +101,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `password`, `rol`, `estado`) VALUES
-(0, 'admin', 'admin', 'administrador', 'activo');
+(1, 'admin', 'admin', 'administrador', 'activo');
 
 -- --------------------------------------------------------
 

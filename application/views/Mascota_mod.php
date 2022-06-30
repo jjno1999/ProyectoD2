@@ -1,5 +1,5 @@
 <div class="container rounded bg-light pb-1 mb-3">
-    <h1 class="center">Modificar registro</h1>
+    <h1 class="center">Modificar mascota</h1>
     <table class="table table-light table-sm table-hover table-striped">
         <thead>
             <tr class="table-primary">
@@ -15,7 +15,7 @@
         <tbody>
             <form method="post" action="<?php echo base_url('index.php/' . $this->session->userdata('rol') . '/' .$this->uri->segment(2). '/reg_mod/' . $mascota['id']);?>">
                 <tr>
-                    <th scope='row'>#</th>
+                    <th scope='row'><?php echo $mascota['id'];?></th>
                     <td><input class="form-control form-control-sm" name="nombre" value="<?php echo $mascota['nombre'];?>" placeholder="nombre de la mascota"></td>
                     <td><input class="form-control form-control-sm" name="especie" value="<?php echo $mascota['especie'];?>" placeholder="especie"></td>
                     <td><input class="form-control form-control-sm" name="raza" value="<?php echo $mascota['raza'];?>" placeholder="raza"></td>
@@ -26,10 +26,10 @@
                             foreach($clientes as $cliente)
                             {
                                 if($mascota['no_documento_cliente'] == $cliente['no_documento']){
-                                    echo '<option value="' . $cliente['no_documento'] . '" selected>(' . $cliente['no_documento'] . ')' . $cliente['nombre'] . '</option>';
+                                    echo '<option value="' . $cliente['no_documento'] . '" selected>' .$cliente['nombre']  . '(' . $cliente['no_documento'] . ')</option>';
                                 }
                                 else{
-                                    echo '<option value="' . $cliente['no_documento'] . '">(' . $cliente['no_documento'] . ')' . $cliente['nombre'] . '</option>';
+                                    echo '<option value="' . $cliente['no_documento'] . '">' .$cliente['nombre']  . '(' . $cliente['no_documento'] . ')</option>';
                                 }
                             }
                             ?>

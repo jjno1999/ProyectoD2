@@ -33,4 +33,17 @@ class Usuario_model extends Base_model
         }
         return false;
     }
+    
+    /**
+    * Retorna los usuarios veterinarios
+    *
+    * @return array arreglo de usuarios de tipo veterinario
+    */
+    public function get_veterinarios()
+    {
+        $this->db->order_by($this->id, 'DESC');
+        $this->db->where('rol', 'veterinario');
+        $query = $this->db->get($this->tabla);
+        return $query->result_array();
+    }
 }

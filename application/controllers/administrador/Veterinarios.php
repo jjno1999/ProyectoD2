@@ -19,7 +19,7 @@ class Veterinarios extends Index
     {
         $data['registros'] = $this->Veterinario_model->get();
         $data['campos'] = $this->Veterinario_model->get_fields();
-        $data['usuarios'] = $this->Usuario_model->get();
+        $data['usuarios'] = $this->Usuario_model->get_veterinarios();
         $paginas = array('veterinario_add', 'tabla_admin_registros');
         $this->view($paginas, $data);
     }
@@ -33,7 +33,7 @@ class Veterinarios extends Index
     {
         $data['veterinario'] = $this->Veterinario_model->get($id);
         $data['campos'] = $this->Veterinario_model->get_fields();
-        $data['usuarios'] = $this->Usuario_model->get();
+        $data['usuarios'] = $this->Usuario_model->get_veterinarios();
         $this->view('veterinario_mod', $data);
     }
 

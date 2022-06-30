@@ -33,7 +33,7 @@ class Base_model extends CI_Model
     }
 
     /**
-    * Retorna un registro por su id
+    * Retorna un registro por su id o un arreglo de registros
     *
     * @param int $id id del registro
     * @return array arreglo de registros si no se define $id
