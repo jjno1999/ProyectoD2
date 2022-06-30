@@ -31,7 +31,7 @@
                             {
                                 if($factura['id_historia_clinica'] == $historia_clinica['id'])
                                 {
-                                    echo '<option value="' . $historia_clinica['id'] . '" selected>' . '(' . $historia_clinica['id'] . ')</option>';
+                                    echo '<option value="' . $historia_clinica['id'] . '" selected>' . $historia_clinica['id'] . '</option>';
                                 }else{
                                     echo '<option value="' . $historia_clinica['id'] . '">' . $historia_clinica['id'] . '</option>';
                                 }

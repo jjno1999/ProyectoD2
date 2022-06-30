@@ -21,12 +21,17 @@
                     <td><input class="form-control form-control-sm" name="diagnostico" placeholder="diagnostico"></td>
                     <td><input class="form-control form-control-sm" name="observaciones" placeholder="observaciones"></td>
                     <td><input class="form-control form-control-sm" name="tratamiento" placeholder="tratamiento"></td>
-                    <td><select class="form-control form-control-sm" name="no_documento_veterinario">
+                    <td><select class="form-control form-control-sm" name="no_documento_veterinario" disabled>
                             <option disabled selected>veterinario</option>
                             <?php
                             foreach($veterinarios as $veterinario)
                             {
-                                echo '<option value="' . $veterinario['no_documento'] . '">' . $veterinario['nombre'] . '(' . $veterinario['no_documento'] . ')</option>';
+                                echo '<option value="' . $veterinario['no_documento'] . '"';
+                                if($veterinario['no_documento'] == $this->session->userdata('veterinario')['no_documento'])
+                                {
+                                    echo ' selected';
+                                }
+                                echo'>(' . $veterinario['no_documento'] . ')' . $veterinario['nombre'] . '</option>';
                             }
                             ?>
                         </select></td>

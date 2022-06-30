@@ -34,7 +34,7 @@ class Mascotas extends Index
         $data['mascota'] = $this->Mascota_model->get($id);
         $data['clientes'] = $this->Cliente_model->get();
         $data['campos'] = $this->Mascota_model->get_fields();
-        $this->view('mascota_mod', $data);
+        $this->view('veterinario/mascota_mod', $data);
     }
 
     /**
