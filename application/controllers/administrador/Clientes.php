@@ -18,7 +18,7 @@ class Clientes extends Index
     {
         $data['registros'] = $this->Cliente_model->get();
         $data['campos'] = $this->Cliente_model->get_fields();
-        $paginas = array('cliente_add', 'tabla_admin_registros');
+        $paginas = array('administrador/cliente_add', 'tabla_admin_registros');
         $this->view($paginas, $data);
     }
 
@@ -31,7 +31,7 @@ class Clientes extends Index
     {
         $data['cliente'] = $this->Cliente_model->get($id);
         $data['campos'] = $this->Cliente_model->get_fields();
-        $this->view('cliente_mod', $data);
+        $this->view('administrador/cliente_mod', $data);
     }
 
     /**

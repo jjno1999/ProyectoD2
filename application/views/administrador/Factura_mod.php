@@ -21,8 +21,8 @@
                     <td><input class="form-control form-control-sm" name="monto" value="<?php echo $factura['monto'];?>" placeholder="monto"></td>
                     <td><select class="form-control form-control-sm" name="estado">
                             <option disabled selected>estado</option>
-                            <option <?php if($factura['estado'] == 'pagada') echo 'selected';?>>pagada</option>
-                            <option <?php if($factura['estado'] == 'pendiente') echo 'selected';?>>pendiente</option>
+                            <option <?php if($factura['estado'] == 'pagada') {echo 'selected';}?>>pagada</option>
+                            <option <?php if($factura['estado'] == 'pendiente') {echo 'selected';}?>>pendiente</option>
                         </select></td>
                     <td><select class="form-control form-control-sm" name="id_historia_clinica">
                             <option disabled selected>historia clinica</option>

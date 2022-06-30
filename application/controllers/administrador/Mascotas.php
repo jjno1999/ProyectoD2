@@ -20,7 +20,7 @@ class Mascotas extends Index
         $data['registros'] = $this->Mascota_model->get();
         $data['clientes'] = $this->Cliente_model->get();
         $data['campos'] = $this->Mascota_model->get_fields();
-        $paginas = array('mascota_add', 'tabla_admin_registros');
+        $paginas = array('administrador/mascota_add', 'tabla_admin_registros');
         $this->view($paginas, $data);
     }
 
@@ -34,7 +34,7 @@ class Mascotas extends Index
         $data['mascota'] = $this->Mascota_model->get($id);
         $data['clientes'] = $this->Cliente_model->get();
         $data['campos'] = $this->Mascota_model->get_fields();
-        $this->view('mascota_mod', $data);
+        $this->view('administrador/mascota_mod', $data);
     }
 
     /**

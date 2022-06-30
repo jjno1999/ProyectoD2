@@ -18,7 +18,7 @@ class Usuarios extends Index
     {
         $data['registros'] = $this->Usuario_model->get();
         $data['campos'] = $this->Usuario_model->get_fields();
-        $paginas = array('usuario_add', 'tabla_admin_registros');
+        $paginas = array('administrador/usuario_add', 'tabla_admin_registros');
         $this->view($paginas, $data);
     }
 
@@ -31,7 +31,7 @@ class Usuarios extends Index
     {
         $data['usuario'] = $this->Usuario_model->get($id);
         $data['campos'] = $this->Usuario_model->get_fields();
-        $this->view('usuario_mod', $data);
+        $this->view('administrador/usuario_mod', $data);
     }
 
     /**

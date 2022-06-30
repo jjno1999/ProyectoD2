@@ -22,7 +22,7 @@ class Historias_clinicas extends Index
         $data['veterinarios'] = $this->Veterinario_model->get();
         $data['mascotas'] = $this->Mascota_model->get();
         $data['campos'] = $this->Historia_clinica_model->get_fields();
-        $paginas = array('Historia_clinica_add', 'tabla_admin_registros');
+        $paginas = array('administrador/historia_clinica_add', 'tabla_admin_registros');
         $this->view($paginas, $data);
     }
 
@@ -37,7 +37,7 @@ class Historias_clinicas extends Index
         $data['veterinarios'] = $this->Veterinario_model->get();
         $data['mascotas'] = $this->Mascota_model->get();
         $data['campos'] = $this->Historia_clinica_model->get_fields();
-        $this->view('Historia_clinica_mod', $data);
+        $this->view('administrador/historia_clinica_mod', $data);
     }
 
     /**

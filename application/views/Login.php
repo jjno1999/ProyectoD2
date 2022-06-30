@@ -1,4 +1,5 @@
 <head>
+    <title>Inicio de sesion - Veterinaria ACME</title>
     <link href="<?php echo base_url(); ?>public/css/login.css" rel="stylesheet">
 </head>
 

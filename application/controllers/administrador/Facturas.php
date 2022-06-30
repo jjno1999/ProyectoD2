@@ -20,7 +20,7 @@ class Facturas extends Index
         $data['registros'] = $this->Factura_model->get();
         $data['historias_clinicas'] = $this->Historia_clinica_model->get();
         $data['campos'] = $this->Factura_model->get_fields();
-        $paginas = array('Factura_add', 'tabla_admin_registros');
+        $paginas = array('administrador/factura_add', 'tabla_admin_registros');
         $this->view($paginas, $data);
     }
 
@@ -34,7 +34,7 @@ class Facturas extends Index
         $data['factura'] = $this->Factura_model->get($id);
         $data['historias_clinicas'] = $this->Historia_clinica_model->get();
         $data['campos'] = $this->Factura_model->get_fields();
-        $this->view('Factura_mod', $data);
+        $this->view('administrador/factura_mod', $data);
     }
 
     /**

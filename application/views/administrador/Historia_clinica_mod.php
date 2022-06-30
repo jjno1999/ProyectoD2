@@ -26,12 +26,12 @@
                             <?php
                             foreach($veterinarios as $veterinario)
                             {
+                                echo '<option value="' . $veterinario['no_documento'] . '"';
                                 if($veterinario['no_documento'] == $historia_clinica['no_documento_veterinario'])
                                 {
-                                    echo '<option value="' . $veterinario['no_documento'] . '" selected>' . $veterinario['nombre'] . '(' . $veterinario['no_documento'] . ')</option>';
-                                }else{
-                                    echo '<option value="' . $veterinario['no_documento'] . '">' . $veterinario['nombre'] . '(' . $veterinario['no_documento'] . ')</option>';
+                                    echo ' selected';
                                 }
+                                echo '>' . $veterinario['nombre'] . '(' . $veterinario['no_documento'] . ')</option>';
                             }
                             ?>
                         </select></td>
@@ -40,12 +40,12 @@
                             <?php
                             foreach($mascotas as $mascota)
                             {
+                                echo '<option value="' . $mascota['id'] . '"';
                                 if($mascota['id'] == $historia_clinica['id_mascota'])
                                 {
-                                    echo '<option value="' . $mascota['id'] . '" selected>' . $mascota['nombre'] . '(' . $mascota['id'] . ')</option>';
-                                }else{
-                                    echo '<option value="' . $mascota['id'] . '">' . $mascota['nombre'] . '(' . $mascota['id'] . ')</option>';
+                                    echo ' selected';
                                 }
+                                echo '>' . $mascota['nombre'] . '(' . $mascota['id'] . ')</option>';
                             }
                             ?>
                         </select></td>

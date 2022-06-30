@@ -26,10 +26,8 @@ class Usuario_model extends Base_model
         $this->db->where($usuario);
         $query = $this->db->get('usuarios');
 
-        if ($query->num_rows() == 1) {
-            if ($query->row_array()['estado'] == 'activo') {
-                return $query->row_array();
-            }
+        if ($query->num_rows() == 1 && $query->row_array()['estado'] == 'activo') {
+            return $query->row_array();
         }
         return false;
     }

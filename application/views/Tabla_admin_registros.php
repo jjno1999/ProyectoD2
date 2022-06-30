@@ -1,7 +1,3 @@
-<head>
-    <script type="text/javascript" src="<?php echo base_url('public/js/auxiliar.js');?>"></script>
-</head>
-
 <div class="container rounded bg-light pb-1 mb-3">
     <h1>Registros</h1>
     <h5>Buscar: <input id="search-input", onkeyup="table_search()"></h5>
