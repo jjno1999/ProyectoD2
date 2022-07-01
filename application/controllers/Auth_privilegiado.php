@@ -3,13 +3,15 @@
 * Controlador basico para operaciones
 * de uso exclusivo de usuarios autenticados
 */
-class Auth_privilegiado extends CI_Controller
+abstract class Auth_privilegiado extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->acceso = NULL;
     }
+
+    abstract function Index();
 
     /**
     * Muestra una pagina con componentes basicos

@@ -1,0 +1,1 @@
+c:/bin/php/php.exe c:/bin/php/phpunit.phar --strict-coverage

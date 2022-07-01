@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Veterinaria ACME</title>
+        <title><?php echo $this->uri->segment(2,$this->uri->segment(1));?> - Veterinaria ACME</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

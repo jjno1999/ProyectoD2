@@ -4,7 +4,7 @@
 *
 * Permite interactuar con los datos de la base de datos
 */
-class Base_model extends CI_Model
+abstract class Base_model extends CI_Model
 {
     public function __construct()
     {

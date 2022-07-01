@@ -18,7 +18,7 @@ class Login extends CI_Controller
     }
 
     /**
-     * Inicia sesion si el usuario ingresado por post es valido
+     * Inicializa variables de sesion si el usuario ingresado por post es valido
      */
     public function log_in()
     {
@@ -41,7 +41,7 @@ class Login extends CI_Controller
     }
 
     /**
-     * Cierra sesion
+     * Elimina variables de sesion
      */
     public function log_out()
     {
